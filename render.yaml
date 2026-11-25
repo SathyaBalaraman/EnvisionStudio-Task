@@ -2,7 +2,7 @@ services:
   - type: web
     name: taskflow-api
     runtime: node
-    plan: starter
+    plan: free
     region: singapore
     rootDir: server
     buildCommand: npm ci --omit=dev
@@ -13,9 +13,3 @@ services:
         value: 24.22.1
       - key: NODE_ENV
         value: production
-      - key: DB_PATH
-        value: /var/data/taskflow.db
-    disk:
-      name: taskflow-data
-      mountPath: /var/data
-      sizeGB: 1
