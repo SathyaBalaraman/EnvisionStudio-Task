@@ -1,29 +1,40 @@
 {
-    "expo":  {
-                 "name":  "TaskFlow",
-                 "slug":  "taskflow",
-                 "version":  "1.0.0",
-                 "orientation":  "portrait",
-                 "icon":  "./assets/icon.png",
-                 "ios":  {
-                             "supportsTablet":  true
-                         },
-                 "android":  {
-                                 "adaptiveIcon":  {
-                                                      "backgroundColor":  "#E6F4FE",
-                                                      "foregroundImage":  "./assets/android-icon-foreground.png",
-                                                      "backgroundImage":  "./assets/android-icon-background.png",
-                                                      "monochromeImage":  "./assets/android-icon-monochrome.png"
-                                                  },
-                                 "predictiveBackGestureEnabled":  false
-                             },
-                 "web":  {
-                             "favicon":  "./assets/favicon.png"
-                         },
-                 "scheme":  "taskflow",
-                 "plugins":  [
-                                 "expo-router"
-                             ],
-                 "userInterfaceStyle":  "light"
-             }
+  "expo": {
+    "name": "TaskFlow",
+    "slug": "taskflow",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "scheme": "taskflow",
+    "plugins": [
+      "expo-router"
+    ],
+    "userInterfaceStyle": "light",
+    "extra": {
+      "router": {
+        "asyncRoutes": {
+          "web": true
+        }
+      },
+      "eas": {
+        "projectId": "a8017816-4eff-4277-af7a-080098eaaeaa"
+      }
+    },
+    "owner": "sathyabalaraman"
+  }
 }

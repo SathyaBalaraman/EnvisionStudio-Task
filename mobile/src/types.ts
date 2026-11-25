@@ -7,5 +7,4 @@ export type Task = {
 export type TaskDraft = Omit<Task, 'id' | 'completed'>;
 export type Filters = { assignee: 'all' | Assignee; status: 'all' | 'active' | 'completed' };
 export const assignees: Assignee[] = ['aarav', 'priya', 'rohan'];
-export const priorities: Priority[] = ['low', 'medium', 'high'];
 export const capitalize = (value: string) => value.charAt(0).toUpperCase() + value.slice(1);

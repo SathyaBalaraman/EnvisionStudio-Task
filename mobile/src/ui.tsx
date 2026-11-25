@@ -17,10 +17,7 @@ export const s = StyleSheet.create({
   label: { color: colors.ink, fontSize: 14, fontWeight: '600', marginBottom: 8 },
   row: { flexDirection: 'row', alignItems: 'center', gap: 12 },
   spread: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
-  chips: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
-  chip: { minHeight: 44, paddingHorizontal: 15, paddingVertical: 11, borderRadius: 22, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surface },
-  chipSelected: { borderColor: colors.green, backgroundColor: colors.green },
-  chipText: { color: colors.ink, fontSize: 14, fontWeight: '500' },
+  selectionText: { color: colors.ink, fontSize: 14, fontWeight: '500' },
   onGreen: { color: colors.surface },
   button: { minHeight: 50, paddingHorizontal: 20, paddingVertical: 14, borderRadius: 14, backgroundColor: colors.green, alignItems: 'center', justifyContent: 'center' },
   buttonText: { color: colors.surface, fontSize: 16, fontWeight: '600' },
@@ -41,13 +38,6 @@ export function Button({ children, onPress, busy = false, disabled = false, outl
     style={({ pressed }) => [s.button, outline && s.outline, (busy || disabled) && s.disabled, pressed && s.pressed, style]}>
     {busy ? <ActivityIndicator color={outline ? colors.green : colors.surface} /> : <Text style={[s.buttonText, outline && { color: colors.ink }]}>{children}</Text>}
   </Pressable>;
-}
-export function Chips<T extends string>({ options, value, onChange, disabled = false }: { options: readonly T[]; value: T; onChange: (value: T) => void; disabled?: boolean }) {
-  return <View style={s.chips}>{options.map(option => <Pressable key={option} accessibilityRole="radio" accessibilityLabel={capitalize(option)}
-    accessibilityState={{ selected: option === value, disabled }} disabled={disabled} onPress={() => onChange(option)}
-    style={({ pressed }) => [s.chip, option === value && s.chipSelected, pressed && s.pressed, disabled && s.disabled]}>
-    <Text style={[s.chipText, option === value && s.onGreen]}>{capitalize(option)}</Text>
-  </Pressable>)}</View>;
 }
 export function PriorityControl({ value, onChange, disabled = false }: {
   value: Priority; onChange: (value: Priority) => void; disabled?: boolean;
@@ -71,7 +61,7 @@ export function PriorityControl({ value, onChange, disabled = false }: {
         backgroundColor: value === priority ? colors.green : colors.paleGreen,
       }, pressed && s.pressed, disabled && s.disabled]}
     >
-      <Text style={[s.chipText, value === priority && s.onGreen]}>{capitalize(priority)}</Text>
+      <Text style={[s.selectionText, value === priority && s.onGreen]}>{capitalize(priority)}</Text>
     </Pressable>)}
   </View>;
 }
